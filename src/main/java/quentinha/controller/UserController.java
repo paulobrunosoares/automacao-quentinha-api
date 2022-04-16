@@ -92,6 +92,7 @@ public class UserController {
 			@ApiResponse(code = 404, message = "The user doesn't exist"), //
 			@ApiResponse(code = 500, message = "Expired or invalid JWT token") })
 	public UserResponseDTO search(@ApiParam("Username") @PathVariable String username) {
+		System.out.println(username);
 		return modelMapper.map(userService.search(username), UserResponseDTO.class);
 	}
 
