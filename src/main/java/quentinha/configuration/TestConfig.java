@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import lombok.RequiredArgsConstructor;
-import quentinha.model.AppUser;
-import quentinha.model.AppUserRole;
-import quentinha.service.UserService;
-
+import quentinha.auth.model.AppUser;
+import quentinha.auth.model.AppUserRole;
+import quentinha.auth.service.UserService;
+	
 @Configuration
 @Profile("test")
 @RequiredArgsConstructor

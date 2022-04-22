@@ -1,4 +1,4 @@
-package quentinha.controller;
+package quentinha.auth.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,11 +24,11 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.Authorization;
 import lombok.RequiredArgsConstructor;
-import quentinha.dto.JwtTokenDTO;
-import quentinha.dto.UserDataDTO;
-import quentinha.dto.UserResponseDTO;
-import quentinha.model.AppUser;
-import quentinha.service.UserService;
+import quentinha.auth.dto.JwtTokenDTO;
+import quentinha.auth.dto.UserDataDTO;
+import quentinha.auth.dto.UserResponseDTO;
+import quentinha.auth.model.AppUser;
+import quentinha.auth.service.UserService;
 
 //@CrossOrigin (value = "http://localhost:4200")
 @CrossOrigin(value = "*")
@@ -114,6 +114,7 @@ public class UserController {
 		return userService.refresh(req.getRemoteUser());
 	}
 
+//	@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
 	@PostMapping("/validateToken")
 	public ResponseEntity<JwtTokenDTO> validateToken(@RequestHeader(name = "Authorization") String token ) {
 		userService.validateToken(token);

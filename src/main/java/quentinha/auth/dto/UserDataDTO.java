@@ -1,11 +1,11 @@
-package quentinha.dto;
+package quentinha.auth.dto;
 
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import quentinha.model.AppUserRole;
+import quentinha.auth.model.AppUserRole;
 
 @Data
 @NoArgsConstructor

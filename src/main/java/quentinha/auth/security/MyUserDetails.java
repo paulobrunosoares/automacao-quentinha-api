@@ -1,13 +1,13 @@
-package quentinha.security;
-
-import lombok.RequiredArgsConstructor;
-import quentinha.model.AppUser;
-import quentinha.repository.UserRepository;
+package quentinha.auth.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+import quentinha.auth.model.AppUser;
+import quentinha.auth.repository.UserRepository;
 
 @Service
 @RequiredArgsConstructor

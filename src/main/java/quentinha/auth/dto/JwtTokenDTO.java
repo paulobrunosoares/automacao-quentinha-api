@@ -1,4 +1,4 @@
-package quentinha.dto;
+package quentinha.auth.dto;
 
 public class JwtTokenDTO {
 

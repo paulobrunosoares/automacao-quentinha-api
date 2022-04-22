@@ -1,10 +1,10 @@
-package quentinha.dto;
+package quentinha.auth.dto;
 
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import quentinha.model.AppUserRole;
+import quentinha.auth.model.AppUser;
 
 @Data
 public class UserResponseDTO {
@@ -16,6 +16,6 @@ public class UserResponseDTO {
   @ApiModelProperty(position = 2)
   private String email;
   @ApiModelProperty(position = 3)
-  List<AppUserRole> appUserRoles;
+  List<AppUser> appUserRoles;
 
 }

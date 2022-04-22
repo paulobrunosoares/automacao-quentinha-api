@@ -1,8 +1,10 @@
-package quentinha.exception;
+package quentinha.auth.exception;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.boot.web.error.ErrorAttributeOptions;
@@ -10,6 +12,7 @@ import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -30,8 +33,12 @@ public class GlobalExceptionHandlerController {
   }
 
   @ExceptionHandler(CustomException.class)
-  public void handleCustomException(HttpServletResponse res, CustomException ex) throws IOException {
-    res.sendError(ex.getHttpStatus().value(), ex.getMessage());
+  public ResponseEntity<StandardError> handleCustomException(HttpServletRequest req, CustomException ex) throws IOException {
+	  StandardError err = new StandardError(
+			  Instant.now(), ex.getHttpStatus().value(),
+			  HttpStatus.INTERNAL_SERVER_ERROR.name(), ex.getMessage(),
+			  req.getRequestURI());
+    return ResponseEntity.status(ex.getHttpStatus()).body(err);
   }
 
   @ExceptionHandler(AccessDeniedException.class)

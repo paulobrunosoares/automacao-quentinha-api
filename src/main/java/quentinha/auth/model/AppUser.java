@@ -1,4 +1,4 @@
-package quentinha.model;
+package quentinha.auth.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package quentinha.exception;
+package quentinha.auth.exception;
 
 import org.springframework.http.HttpStatus;
 
@@ -22,5 +22,11 @@ public class CustomException extends RuntimeException {
   public HttpStatus getHttpStatus() {
     return httpStatus;
   }
+
+  @Override	
+  public String toString() {
+	return "CustomException [message=" + message + ", httpStatus=" + httpStatus + "]";
+  }
+    
 
 }

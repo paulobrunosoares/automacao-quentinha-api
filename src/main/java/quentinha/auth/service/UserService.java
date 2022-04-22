@@ -1,12 +1,6 @@
-package quentinha.service;
+package quentinha.auth.service;
 
 import javax.servlet.http.HttpServletRequest;
-
-import lombok.RequiredArgsConstructor;
-import quentinha.exception.CustomException;
-import quentinha.model.AppUser;
-import quentinha.repository.UserRepository;
-import quentinha.security.JwtTokenProvider;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +8,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
+import quentinha.auth.exception.CustomException;
+import quentinha.auth.model.AppUser;
+import quentinha.auth.repository.UserRepository;
+import quentinha.auth.security.JwtTokenProvider;
 
 @Service
 @RequiredArgsConstructor

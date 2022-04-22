@@ -1,4 +1,4 @@
-package quentinha.security;
+package quentinha.auth.security;
 
 import java.util.Base64;
 import java.util.Date;
@@ -22,8 +22,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import quentinha.exception.CustomException;
-import quentinha.model.AppUserRole;
+import quentinha.auth.exception.CustomException;
+import quentinha.auth.model.AppUserRole;
 
 @Component
 public class JwtTokenProvider {
